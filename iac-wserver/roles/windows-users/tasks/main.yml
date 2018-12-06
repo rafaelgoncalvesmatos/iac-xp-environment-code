@@ -1,0 +1,12 @@
+---
+# tasks file for roles/users
+- name: Criando usuario
+  win_user:
+    name: "{{ item }}"
+    password: "1234"
+    password_never_expires: yes
+    state: present
+    groups:
+      - Administrators
+  with_items:
+      - "{{ list_users }}"

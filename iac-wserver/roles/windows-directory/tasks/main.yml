@@ -1,0 +1,16 @@
+---
+# tasks file for roles/directory
+- name: Criando estrutura de diretorios
+  win_file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ list_directory }}"
+
+- name: Delegando permissao nos diretorios 
+  win_acl:
+    path: "{{ list_directory }}"
+    group: Administrators
+    rights: FullControl
+    type: allow
+    state: present

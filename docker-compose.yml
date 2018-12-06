@@ -1,6 +1,78 @@
-elk:
-  image: sebp/elk
-  ports:
-    - "5601:5601"
-    - "9200:9200"
-    - "5044:5044"
+version: '2'
+services:
+
+  memcached:
+    image: memcached:alpine
+  task:
+    image: ansible/awx_task:latest
+    hostname: awx
+    environment:
+      AWX_ADMIN_PASSWORD: password
+      AWX_ADMIN_USER: admin
+      DATABASE_HOST: postgres
+      DATABASE_NAME: awx
+      DATABASE_PASSWORD: awxpass
+      DATABASE_PORT: '5432'
+      DATABASE_USER: awx
+      MEMCACHED_HOST: memcached
+      MEMCACHED_PORT: '11211'
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PASSWORD: guest
+      RABBITMQ_PORT: '5672'
+      RABBITMQ_USER: guest
+      RABBITMQ_VHOST: awx
+      SECRET_KEY: awxsecret
+    stdin_open: true
+    tty: true
+    volumes:
+      - /root/:/mnt:rw
+    links:
+      - rabbitmq:rabbitmq
+      - postgres:postgres
+      - memcached:memcached
+    user: root
+
+  web:
+    image: ansible/awx_web:latest
+    hostname: awxweb
+    environment:
+      AWX_ADMIN_PASSWORD: password
+      AWX_ADMIN_USER: admin
+      DATABASE_HOST: postgres
+      DATABASE_NAME: awx
+      DATABASE_PASSWORD: awxpass
+      DATABASE_PORT: '5432'
+      DATABASE_USER: awx
+      MEMCACHED_HOST: memcached
+      MEMCACHED_PORT: '11211'
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PASSWORD: guest
+      RABBITMQ_PORT: '5672'
+      RABBITMQ_USER: guest
+      RABBITMQ_VHOST: awx
+      SECRET_KEY: awxsecret
+    ports:
+      - "8090:8052"
+    stdin_open: true
+    tty: true
+    links:
+      - rabbitmq:rabbitmq
+      - postgres:postgres
+      - memcached:memcached
+    user: root
+
+  rabbitmq:
+    image: ansible/awx_rabbitmq:3.7.4
+    environment:
+      RABBITMQ_DEFAULT_VHOST: awx
+      RABBITMQ_ERLANG_COOKIE: cookiemonster
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: awx
+      POSTGRES_PASSWORD: awxpass
+      POSTGRES_USER: awx
+    volumes:
+      - /var/lib/docker/postgres-data:/var/lib/postgresql/data:rw

@@ -1,0 +1,12 @@
+---
+- name: XP - infrastructure as Code
+  hosts: windows
+  gather_facts: no
+  roles:
+    - windows-users
+    - windows-directory
+    - windows-roles-features
+    # - windows-roles-features
+    # - windows-update
+    # - windows-c++
+    

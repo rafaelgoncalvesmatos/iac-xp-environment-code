@@ -1,0 +1,23 @@
+list_users:
+  - U001956
+  - U001957
+  - U001958
+  - U001959
+  - U001951
+  - U001952
+
+list_directory:
+  - c:\XP-Sites
+  - c:\XP-Applications
+  - c:\XP-SAK
+  - c:\XP-RendaFixa
+  - c:\XP-COE
+  - c:\XP-RendaVariavel
+
+list_features:
+  - Web-Server
+  - Web-WebServer
+  - Web-Common-Http
+  - Web-Default-Doc
+  - Web-Dir-Browsing
+  - Web-Http-Errors
