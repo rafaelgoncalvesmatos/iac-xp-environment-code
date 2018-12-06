@@ -27,24 +27,24 @@
         - Web-ISAPI-Filter
         - Web-Mgmt-Tools
         - Web-Mgmt-Console
-        - NET-Framework-Features
-        - NET-Framework-Core
-        - NET-Framework-45-Features
-        - NET-Framework-45-Core
-        - NET-Framework-45-ASPNET
-        - NET-WCF-Services45
-        - NET-WCF-HTTP-Activation45
-        - NET-WCF-TCP-PortSharing45
-        - FS-SMB1
-        - Telnet-Client
-        - User-Interfaces-Infra
-        - Server-Gui-Mgmt-Infra
-        - Server-Gui-Shell
-        - PowerShellRoot
-        - PowerShell
-        - PowerShell-V2
-        - PowerShell-ISE
-        - WAS
-        - WAS-Process-Model
-        - WAS-Config-APIs
-        - WoW64-Support   
+        # - NET-Framework-Features
+        # - NET-Framework-Core
+        # - NET-Framework-45-Features
+        # - NET-Framework-45-Core
+        # - NET-Framework-45-ASPNET
+        # - NET-WCF-Services45
+        # - NET-WCF-HTTP-Activation45
+        # - NET-WCF-TCP-PortSharing45
+        # - FS-SMB1
+        # - Telnet-Client
+        # - User-Interfaces-Infra
+        # - Server-Gui-Mgmt-Infra
+        # - Server-Gui-Shell
+        # - PowerShellRoot
+        # - PowerShell
+        # - PowerShell-V2
+        # - PowerShell-ISE
+        # - WAS
+        # - WAS-Process-Model
+        # - WAS-Config-APIs
+        # - WoW64-Support   

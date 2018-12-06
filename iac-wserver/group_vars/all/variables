@@ -14,10 +14,3 @@ list_directory:
   - c:\XP-COE
   - c:\XP-RendaVariavel
 
-list_features:
-  - Web-Server
-  - Web-WebServer
-  - Web-Common-Http
-  - Web-Default-Doc
-  - Web-Dir-Browsing
-  - Web-Http-Errors
