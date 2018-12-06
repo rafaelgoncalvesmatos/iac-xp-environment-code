@@ -3,7 +3,7 @@
 - name: Criando usuario
   win_user:
     name: "{{ item }}"
-    password: "1234"
+    password: "1234abc@"
     password_never_expires: yes
     state: present
     groups:
