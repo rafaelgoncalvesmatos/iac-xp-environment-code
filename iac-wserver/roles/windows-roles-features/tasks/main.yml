@@ -36,7 +36,7 @@
         # - NET-WCF-HTTP-Activation45
         # - NET-WCF-TCP-PortSharing45
         # - FS-SMB1
-        # - Telnet-Client
+        - Telnet-Client
         # - User-Interfaces-Infra
         # - Server-Gui-Mgmt-Infra
         # - Server-Gui-Shell
